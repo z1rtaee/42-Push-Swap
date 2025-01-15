@@ -6,7 +6,7 @@
 /*   By: zirtaee <zirtaee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 11:22:14 by bpires-r          #+#    #+#             */
-/*   Updated: 2025/01/14 16:21:49 by zirtaee          ###   ########.fr       */
+/*   Updated: 2025/01/15 21:29:00 by zirtaee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,4 @@ int	ft_atoi(const char *nptr)
 		i++;
 	}
 	return (result * sign);
-}
-
-int	main(void)
-{
-	char *s = "-12345754854785877754784949869549649864";
-	printf("My Func : %d\n", ft_atoi(s));
-	printf("Orignal Fun : %d\n", atoi(s));
-	return (0);
 }

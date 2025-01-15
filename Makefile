@@ -1,6 +1,6 @@
 ###COLOURS###
 PINK 	= \e[1;35m
-PURPLE 	= \e[0;95m
+PURPLE	= \e[0;95m
 WHITE   = \e[1;37m
 DEFAULT = \e[0m
 
@@ -10,25 +10,26 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 SRC_DIR = src/
 LIBFT_DIR = Libft/
-INCLUDE = ./libft/libft.a
+INCLUDE = ./Libft/libft.a
 
-SRCS = $(SRC_DIR)main.c
-OBJS = $(SRCS: .c=.o)
+SRCS = $(SRC_DIR)parsing.c $(SRC_DIR)main.c
+OBJS = $(SRCS:.c=.o)
 
 ###RULES###
 %.o: %.c
-	$(CC) $(CFLAGS) -c $(<) -o $(@)
+	@$(CC) $(CFLAGS) -c $(<) -o $(@)
 
 $(NAME): $(OBJS)
-	@echo "$(PINK)Bringing $(PURPLE)$(NAME)$(PINK) to life!$(DEFAULT)"
-	@make -C $(LIBFT_DIR)
-	@echo "$(PINK)Creating $(PURPLE)$(NAME)'s$(PINK) executable$(DEFAULT)"
+	@echo "$(WHITE)Bringing $(PINK)$(NAME)$(WHITE) to life!$(DEFAULT)"
+	@make -s -C $(LIBFT_DIR)
+	@echo "$(WHITE)Creating $(PINK)$(NAME)'s$(WHITE) executable...$(DEFAULT)"
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(INCLUDE)
-	@echo "$(PURPLE)$(NAME) was born!"
+	@echo "$(PINK)$(NAME) was born!$(DEFAULT)"
 
 all: $(NAME)
 
 clean:
+	@make -s -C $(LIBFT_DIR) clean 
 	@rm -rf $(OBJS)
 
 fclean: clean

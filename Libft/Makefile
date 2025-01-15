@@ -12,7 +12,7 @@ LST_SRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_bac
 OBJS = $(SRCS:.c=.o) $(LST_SRCS:.c=.o)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -I. -c $(<) -o $(@)
+	@$(CC) $(CFLAGS) -I. -c $(<) -o $(@)
 
 all: $(NAME)
 
@@ -28,7 +28,7 @@ fclean: clean
 re: fclean all
 
 comp: fclean bonus
-	$(CC) $(CFLAGS) main.c $(NAME) -lbsd -o $(EXEC)
+	@$(CC) $(CFLAGS) main.c $(NAME) -lbsd -o $(EXEC)
 
 run: comp
 	./$(EXEC)

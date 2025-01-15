@@ -12,7 +12,7 @@ SRC_DIR = src/
 LIBFT_DIR = Libft/
 INCLUDE = ./libft/libft.a
 
-SRCS = $(SRC_DIR)
+SRCS = $(SRC_DIR)main.c
 OBJS = $(SRCS: .c=.o)
 
 ###RULES###

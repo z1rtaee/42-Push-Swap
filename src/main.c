@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zirtaee <zirtaee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 16:21:40 by zirtaee           #+#    #+#             */
-/*   Updated: 2025/01/15 19:52:06 by zirtaee          ###   ########.fr       */
+/*   Created: 2025/01/15 18:19:18 by zirtaee           #+#    #+#             */
+/*   Updated: 2025/01/15 18:25:19 by zirtaee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../inc/push_swap.h"
 
-# include "../Libft/libft.h"
-# include <stdlib.h>
-
-# define TRUE 1
-# define FALSE 0
-
-typedef struct s_stack
+int main(int argc, char **argv)
 {
-    struct s_list   *prev;
-    void            *content;
-    struct s_list   *next;
-}                   t_stack;
-
-
-#endif
+    printf("%d", )
+}

@@ -12,7 +12,7 @@ SRC_DIR = src/
 LIBFT_DIR = Libft/
 INCLUDE = ./Libft/libft.a
 
-SRCS = $(SRC_DIR)parsing.c $(SRC_DIR)main.c
+SRCS = $(SRC_DIR)parsing.c $(SRC_DIR)main.c $(SRC_DIR)stack_utils.c $(SRC_DIR)memory_handle.c
 OBJS = $(SRCS:.c=.o)
 
 ###RULES###

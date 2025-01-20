@@ -1,28 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   swap_push_moves.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zirtaee <zirtaee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 19:32:27 by bpires-r          #+#    #+#             */
-/*   Updated: 2025/01/20 18:25:52 by zirtaee          ###   ########.fr       */
+/*   Created: 2025/01/20 17:41:48 by zirtaee           #+#    #+#             */
+/*   Updated: 2025/01/20 18:32:41 by zirtaee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../inc/push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	pa(t_stack **a, t_stack **b)
 {
-	t_list	*last;
+	push(a, b);
+	ft_putstr_fd("pa\n", 1);
+}
 
-	if (!lst || !new)
-		return ;
-	if (!*lst)
-	{
-		*lst = new;
-		return ;
-	}
-	last = ft_lstlast(*lst);
-	last->next = new;
+void	pb(t_stack **b, t_stack **a)
+{
+	push(b, a);
+	ft_putstr_fd("pb\n", 1);
+}
+
+void	sa(t_stack **a)
+{
+	swap(a);
+	ft_putstr_fd("sa\n", 1);
+}
+
+void	sb(t_stack **b)
+{
+	swap(b);
+	ft_putstr_fd("sb\n", 1);
+}
+
+void	ss(t_stack **a, t_stack **b)
+{
+	swap(a);
+	swap(b);
+	ft_putstr_fd("ss\n", 1);
 }

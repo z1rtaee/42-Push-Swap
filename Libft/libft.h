@@ -6,7 +6,7 @@
 /*   By: zirtaee <zirtaee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:00:15 by bpires-r          #+#    #+#             */
-/*   Updated: 2024/11/16 01:52:31 by zirtaee          ###   ########.fr       */
+/*   Updated: 2025/01/20 14:56:03 by zirtaee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,4 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
-
 #endif

@@ -6,7 +6,7 @@
 /*   By: zirtaee <zirtaee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:53:17 by zirtaee           #+#    #+#             */
-/*   Updated: 2025/01/17 19:39:35 by zirtaee          ###   ########.fr       */
+/*   Updated: 2025/01/20 18:31:46 by zirtaee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,23 @@ void	create_stack(t_stack **a, char **argv)
 			new = create_node(ft_atoi(tmp[j]));
 			if (!new)
 				return (free_ar(tmp));
-			add_back(a, new);
+			stack_add_back(a, new);
 		}
 		free_ar(tmp);
 	}
+}
+
+int	stack_len(t_stack *x)
+{
+	int	len;
+
+	if (!x)
+		return (0);
+	len = 0;
+	while (x)
+	{
+		len++;
+		x = x->next;
+	}
+	return (len);
 }

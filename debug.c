@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   debug.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zirtaee <zirtaee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 19:32:27 by bpires-r          #+#    #+#             */
-/*   Updated: 2025/01/20 18:25:52 by zirtaee          ###   ########.fr       */
+/*   Created: 2025/01/20 14:25:39 by zirtaee           #+#    #+#             */
+/*   Updated: 2025/01/20 18:37:11 by zirtaee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../inc/push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	print_stack(t_stack *x)
 {
-	t_list	*last;
+	t_stack	tmp;
 
-	if (!lst || !new)
-		return ;
-	if (!*lst)
+	tmp = x;
+	while (tmp)
 	{
-		*lst = new;
-		return ;
+		printf("Node Content : %d\n", tmp->content);
+		if (x->prev)
+			printf("Node Prev : %d\n", tmp->prev->content);
+		else
+			printf("No Prev found.\n");
+		if (x->next)
+			printf("Node Next : %d\n\n", tmp->next->content);
+		else
+			printf("No Next found\n\n");
+		tmp = tmp->next;
 	}
-	last = ft_lstlast(*lst);
-	last->next = new;
 }

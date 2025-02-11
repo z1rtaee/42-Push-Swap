@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zirtaee <zirtaee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:55:03 by zirtaee           #+#    #+#             */
-/*   Updated: 2025/01/17 19:08:54 by zirtaee          ###   ########.fr       */
+/*   Updated: 2025/02/11 14:54:27 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,17 @@ int	check_dup(t_stack *a)
 	return (TRUE);
 }
 
+int	check_max(t_stack *a)
+{
+	while (a)
+	{
+		if (a->content > INT_MAX)
+			return (FALSE);
+		a = a->next;
+	}
+	return (TRUE);
+}
+
 int	check_input(int argc, char **argv)
 {
 	int		x;
@@ -69,7 +80,9 @@ int	check_input(int argc, char **argv)
 		while (tmp[i])
 			i++;
 		if (!check_num(i, tmp))
-			return (FALSE);
+			return (free_ar(tmp), FALSE);
+		free_ar(tmp);
 	}
 	return (TRUE);
 }
+

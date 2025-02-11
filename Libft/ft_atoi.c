@@ -3,20 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zirtaee <zirtaee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 11:22:14 by bpires-r          #+#    #+#             */
-/*   Updated: 2025/01/15 21:29:00 by zirtaee          ###   ########.fr       */
+/*   Updated: 2025/02/10 16:54:11 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+//Not actually atoi anymore
+
+long	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	sign;
-	int	result;
+	int		i;
+	int		sign;
+	long	result;
 
 	i = 0;
 	result = 0;
@@ -34,6 +36,8 @@ int	ft_atoi(const char *nptr)
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
 		result = result * 10 + nptr[i] - '0';
+		if (result > INT_MAX || result < INT_MIN)
+			return ((long)INT_MAX + 1);
 		i++;
 	}
 	return (result * sign);

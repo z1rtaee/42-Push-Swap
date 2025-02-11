@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zirtaee <zirtaee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:21:40 by zirtaee           #+#    #+#             */
-/*   Updated: 2025/01/20 19:12:42 by zirtaee          ###   ########.fr       */
+/*   Updated: 2025/02/11 14:37:43 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@
 
 typedef struct s_stack
 {
-	int				content;
+	long			content;
 	struct s_stack	*next;
 	struct s_stack	*prev;
+	int				index;
 }				t_stack;
 
 //Main function
@@ -33,12 +34,12 @@ int		main(int argc, char **argv);
 int		check_num(int argc, char **argv);
 int		check_dup(t_stack *a);
 int		check_input(int argc, char **argv);
+int		check_max(t_stack *a);
 
 //Functions for stack utility
-t_stack	*create_node(int nbr);
+t_stack	*create_node(long nbr);
 void	create_stack(t_stack **a, char **argv);
 void	stack_add_back(t_stack **a, t_stack *new);
-void	stack_add_front(t_stack **a, t_stack *new);
 void	print_stack(t_stack *x);
 int		stack_len(t_stack *x);
 
@@ -47,7 +48,7 @@ void	free_stack(t_stack **stack);
 void	free_ar(char **ar);
 
 //Moves and operations
-void	push(t_stack **x, t_stack **y);
+void	push(t_stack **to, t_stack **from);
 void	swap(t_stack **x);
 void	rotate(t_stack **x);
 void	rv_rotate(t_stack **x);
@@ -61,6 +62,11 @@ void	rb(t_stack **a);
 void	rr(t_stack **a, t_stack **b);
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
-void	rrr(t_list **a, t_stack **b);
+void	rrr(t_stack **a, t_stack **b);
+
+//Sorting Functions
+int		is_sorted(t_stack *a);
+void	sort_three(t_stack **a);
+void	sort_all(t_stack **x);
 
 #endif

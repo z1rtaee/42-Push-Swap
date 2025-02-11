@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zirtaee <zirtaee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:00:15 by bpires-r          #+#    #+#             */
-/*   Updated: 2025/01/20 14:56:03 by zirtaee          ###   ########.fr       */
+/*   Updated: 2025/02/10 16:12:41 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ size_t				ft_strlen(const char *s);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 size_t				ft_strlcpy(char *dst, const char *src, size_t size);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
-int					ft_atoi(const char *nptr);
+long				ft_atoi(const char *nptr);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 char				*ft_strnstr(const char *s1, const char *s2, size_t len);

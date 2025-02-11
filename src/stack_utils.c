@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zirtaee <zirtaee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:53:17 by zirtaee           #+#    #+#             */
-/*   Updated: 2025/01/20 18:31:46 by zirtaee          ###   ########.fr       */
+/*   Updated: 2025/02/11 14:18:44 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-t_stack	*create_node(int nbr)
+t_stack	*create_node(long nbr)
 {
 	t_stack	*new;
 
@@ -41,25 +41,16 @@ void	stack_add_back(t_stack **a, t_stack *new)
 	new->prev = last;
 }
 
-void	stack_add_front(t_stack **a, t_stack *new)
-{
-	if (!a || !new)
-		return ;
-	if (!*a)
-		*a = new;
-	new->next = *a;
-	(*a)->prev = new;
-	*a = new;
-}
-
 void	create_stack(t_stack **a, char **argv)
 {
 	t_stack	*new;
 	char	**tmp;
 	int		i;
 	int		j;
+	int		index;
 
 	i = 0;
+	index = -1;
 	while (argv[++i])
 	{
 		tmp = ft_split(argv[i], ' ');
@@ -69,6 +60,7 @@ void	create_stack(t_stack **a, char **argv)
 			new = create_node(ft_atoi(tmp[j]));
 			if (!new)
 				return (free_ar(tmp));
+			new->index = ++index;
 			stack_add_back(a, new);
 		}
 		free_ar(tmp);

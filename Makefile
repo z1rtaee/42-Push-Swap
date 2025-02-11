@@ -13,7 +13,9 @@ LIBFT_DIR = Libft/
 INCLUDE = ./Libft/libft.a
 
 SRCS = $(SRC_DIR)parsing.c $(SRC_DIR)main.c $(SRC_DIR)stack_utils.c \
-$(SRC_DIR)memory_handle.c $(SRC_DIR)operations.c
+$(SRC_DIR)memory_handle.c $(SRC_DIR)operations.c $(SRC_DIR)sort_utils.c \
+$(SRC_DIR)swap_push_moves.c $(SRC_DIR)rotate_revotate_moves.c
+
 OBJS = $(SRCS:.c=.o)
 
 ###RULES###

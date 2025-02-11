@@ -1,0 +1,23 @@
+//Declare 2 pointers for stack a and stack b
+		//Set both parameters to Null to avoid undefined behaviour and 
+		indicate were starting with empty stacks
+
+//Handle input count errors, must be 2 or more
+
+//handle both cases of input, wether a string or a variable number of 
+arguments as numbers
+		//if string then call split to split the substrings with spaces
+
+//initialize stack a by putting each input in a node belonging to stack a
+		//Handle integer overflow missing
+		//check if it is bigger than max int -- if yes ERROR 
+		//CHECK MIN INT!!!!!!!!
+
+//Check if stack A is sorted
+		//if not sorted implement algorithm 
+		//check for 2 numbers
+				//if yes swap
+		//Check for 3 numbers 
+				//if so implement sort three algorithm
+		//check if more than 3 length
+				//if so implement turk

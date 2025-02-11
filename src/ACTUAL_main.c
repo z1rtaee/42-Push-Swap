@@ -1,44 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_revotate_moves.c                            :+:      :+:    :+:   */
+/*   ACTUAL_main.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 18:00:52 by zirtaee           #+#    #+#             */
-/*   Updated: 2025/02/10 22:32:29 by bpires-r         ###   ########.fr       */
+/*   Created: 2025/02/10 14:15:13 by bpires-r          #+#    #+#             */
+/*   Updated: 2025/02/11 15:45:51 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	ra(t_stack **a)
+int	main(int argc, char **argv)
 {
-	rotate(a);
-	ft_putstr_fd("ra\n", 1);
-}
+	t_stack	*a;
+	t_stack	*b;
 
-void	rb(t_stack **b)
-{
-	rotate(b);
-	ft_putstr_fd("rb\n", 1);
-}
-
-void	rr(t_stack **a, t_stack **b)
-{
-	rotate(a);
-	rotate(b);
-	ft_putstr_fd("rr\n", 1);
-}
-
-void	rra(t_stack **a)
-{
-	rv_rotate(a);
-	ft_putstr_fd("rra\n", 1);
-}
-
-void	rrb(t_stack **b)
-{
-	rv_rotate(b);
-	ft_putstr_fd("rrb\n", 1);
+	a = NULL;
+	b = NULL;
+	if (argc == 1 || (argc == 2 && argv[1][0]))
+		return (1);
+	if(!check_input(argc, argc))
+		return (ft_putchar_fd("Error", 2), 1);
+	create_stack(&a, argv);
+	if (!check_dup(a) || !check_max(a))
+		return (free_stack(&a), ft_putendl_fd("Error", 2), 1);
+	if (!is_sorted(a))
+		sort_all(&a);
+	free_stack(&a);
 }

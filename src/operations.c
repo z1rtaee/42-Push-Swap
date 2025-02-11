@@ -3,30 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zirtaee <zirtaee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 19:45:06 by zirtaee           #+#    #+#             */
-/*   Updated: 2025/01/20 18:35:33 by zirtaee          ###   ########.fr       */
+/*   Updated: 2025/02/10 17:32:32 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	push(t_stack **x, t_stack **y)
+void	push(t_stack **to, t_stack **from)
 {
 	t_stack	*tmp;
 
-	if (!y || !*y)
+	if (!from || !*from)
 		return ;
-	tmp = *y;
-	*y = (*y)->next;
-	if (*y)
-		(*y)->prev = NULL;
-	tmp->next = *x;
-	if (*x)
-		(*x)->prev = tmp;
+	tmp = *from;
+	*from = (*from)->next;
+	if (*from)
+		(*from)->prev = NULL;
+	tmp->next = *to;
+	if (*to)
+		(*to)->prev = tmp;
 	tmp->prev = NULL;
-	*x = tmp;
+	*to = tmp;
 }
 
 void	swap(t_stack **x)
@@ -72,7 +72,7 @@ void	rv_rotate(t_stack **x)
 	*x = last;
 }
 
-void	rrr(t_list **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b)
 {
 	rv_rotate(a);
 	rv_rotate(b);

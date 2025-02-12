@@ -6,7 +6,7 @@
 /*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:19:18 by zirtaee           #+#    #+#             */
-/*   Updated: 2025/02/11 15:09:09 by bpires-r         ###   ########.fr       */
+/*   Updated: 2025/02/12 15:00:46 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 	// t_stack	*b;
 	t_stack *temp;
 
-	if (argc == 1)
+	if (argc == 1 || !argv[1][0])
 		return (1);
 	a = NULL;
 	// b = NULL;

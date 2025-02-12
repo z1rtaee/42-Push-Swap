@@ -21,3 +21,16 @@ arguments as numbers
 				//if so implement sort three algorithm
 		//check if more than 3 length
 				//if so implement turk
+
+//Free a
+
+
+
+turk
+//PUSH 2
+
+//Find the cheapest node to push from a to b
+		//calculate x operations to bring a->node on top
+		+ x operations to bring a->node->target on top
+		this will be == to push cost.
+				//

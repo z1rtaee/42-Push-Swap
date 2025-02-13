@@ -6,7 +6,7 @@
 /*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 15:07:19 by bpires-r          #+#    #+#             */
-/*   Updated: 2025/02/12 19:52:32 by bpires-r         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:34:16 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,20 @@
 t_stack *a_cheapest_node(t_stack *a, t_stack *b)
 {
 	t_stack	*cheapest;
-	int		a_len;
+	int		b_len;
 
-	a_len = stack_len(a);
+	b_len = stack_len(b);
+	cheapest = a;
+	a = a->next;
 	while (a)
 	{
 		a_set_target(a, b);
-
+		if (a_cost_rvr_rvrv(a, b_len, a_cost_rr_rrv(a, b_len)) < 
+		a_cost_rvr_rvrv(cheapest, b_len, a_cost_rr_rrv(cheapest, b_len)))
+			cheapest = a;
+		a = a->next;
 	}
+	return (cheapest);
 }
 
 void	a_set_target(t_stack *a, t_stack *b)
@@ -30,6 +36,8 @@ void	a_set_target(t_stack *a, t_stack *b)
 	int	target_nbr;
 	int	index;
 
+	if (!b)
+		return ;
 	if (a->content > get_max(b)->content || a->content < get_min(b)->content)
 	{
 		a->target = get_max(b)->index;
@@ -48,7 +56,7 @@ void	a_set_target(t_stack *a, t_stack *b)
 	a->target = index;
 }
 
-int	cost_rr_rrv(t_stack *a, int b_len)
+int	a_cost_rr_rrv(t_stack *a, int b_len)
 {
 	int	cost;
 	int	a_len;
@@ -67,7 +75,7 @@ int	cost_rr_rrv(t_stack *a, int b_len)
 	return (cost);
 }
 
-int	cost_rvr_rvrv(t_stack *a, int b_len, int cost)
+int	a_cost_rvr_rvrv(t_stack *a, int b_len, int cost)
 {
 	int	a_len;
 

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   caculate_cost.c                                    :+:      :+:    :+:   */
+/*   a_cheapest_node.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 15:07:19 by bpires-r          #+#    #+#             */
-/*   Updated: 2025/02/13 17:34:16 by bpires-r         ###   ########.fr       */
+/*   Updated: 2025/02/21 14:25:45 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-t_stack *a_cheapest_node(t_stack *a, t_stack *b)
+t_stack	*a_cheapest_node(t_stack *a, t_stack *b)
 {
 	t_stack	*cheapest;
 	int		b_len;
@@ -23,8 +23,9 @@ t_stack *a_cheapest_node(t_stack *a, t_stack *b)
 	while (a)
 	{
 		a_set_target(a, b);
-		if (a_cost_rvr_rvrv(a, b_len, a_cost_rr_rrv(a, b_len)) < 
-		a_cost_rvr_rvrv(cheapest, b_len, a_cost_rr_rrv(cheapest, b_len)))
+		if (a_cost_rvr_rvrv(a, b_len, a_cost_rr_rrv(a,
+					b_len)) < a_cost_rvr_rvrv(cheapest, b_len,
+				a_cost_rr_rrv(cheapest, b_len)))
 			cheapest = a;
 		a = a->next;
 	}
@@ -84,7 +85,7 @@ int	a_cost_rvr_rvrv(t_stack *a, int b_len, int cost)
 	{
 		cost = (a_len - a->index) + a->target;
 		a->type = RV_R;
-	}	
+	}
 	if (a_len - a->index > b_len - a->target && a_len - a->index < cost)
 	{
 		cost = a_len - a->index;
@@ -95,5 +96,6 @@ int	a_cost_rvr_rvrv(t_stack *a, int b_len, int cost)
 		cost = b_len - a->target;
 		a->type = RV_RV;
 	}
+	a->cost = cost;
 	return (cost);
 }

@@ -6,7 +6,7 @@
 /*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:55:03 by zirtaee           #+#    #+#             */
-/*   Updated: 2025/02/11 14:54:27 by bpires-r         ###   ########.fr       */
+/*   Updated: 2025/02/21 12:45:30 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,3 @@ int	check_input(int argc, char **argv)
 	}
 	return (TRUE);
 }
-

@@ -6,7 +6,7 @@
 /*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:21:40 by zirtaee           #+#    #+#             */
-/*   Updated: 2025/02/13 17:21:05 by bpires-r         ###   ########.fr       */
+/*   Updated: 2025/02/21 17:24:37 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,26 @@ t_stack *get_max(t_stack *x);
 t_stack	*get_min(t_stack *x);
 int		is_sorted(t_stack *a);
 void	sort_three(t_stack **a);
-void	sort_all(t_stack **x);
+void	sort_all(t_stack **a, t_stack **b);
+
+//Turk Algorithm
+void	execute_r_r(t_stack **a, t_stack **b);
+void	execute_r_rv(t_stack **a, t_stack **b);
+void	execute_rv_r(t_stack **a, t_stack **b);
+void	execute_rv_rv(t_stack **a, t_stack **b);
+
+//Turk Algorithm Stack A
+t_stack	*a_cheapest_node(t_stack *a, t_stack *b);
+void	a_set_target(t_stack *a, t_stack *b);
+int		a_cost_rr_rrv(t_stack *a, int b_len);
+int		a_cost_rvr_rvrv(t_stack *a, int b_len, int cost);
+void	a_sort(t_stack **a, t_stack **b);
+
+//Turk Algorithm Stack B
+t_stack	*b_cheapest_node(t_stack *a, t_stack *b);
+void	b_set_target(t_stack *a, t_stack *b);
+int		b_cost_rr_rrv(t_stack *b, int a_len);
+int		b_cost_rvr_rvrv(t_stack *b, int a_len, int cost);
+void	b_sort(t_stack **a, t_stack **b);
 
 #endif

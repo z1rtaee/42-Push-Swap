@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ACTUAL_main.c                                      :+:      :+:    :+:   */
+/*   b_algorithm.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/10 14:15:13 by bpires-r          #+#    #+#             */
-/*   Updated: 2025/02/21 12:45:55 by bpires-r         ###   ########.fr       */
+/*   Created: 2025/02/21 15:15:54 by bpires-r          #+#    #+#             */
+/*   Updated: 2025/02/21 16:49:38 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	main(int argc, char **argv)
+void	b_sort(t_stack **a, t_stack **b)
 {
-	t_stack	*a;
-	t_stack	*b;
+	int	b_len;
+	t_stack *cheapest;
 
-	a = NULL;
-	b = NULL;
-	if (argc == 1 || (argc == 2 && argv[1][0]))
-		return (1);
-	if (!check_input(argc, argc))
-		return (ft_putchar_fd("Error", 2), 1);
-	create_stack(&a, argv);
-	if (!check_dup(a) || !check_max(a))
-		return (free_stack(&a), ft_putendl_fd("Error", 2), 1);
-	if (!is_sorted(a))
-		sort_all(&a);
-	free_stack(&a);
+	b_len = stack_len(*b);
+	while (b_len > 3)
+	{
+		cheapest = b_cheapest_node(*a, *b);
+		if (cheapest->type == R_R)
+			execute_r_r(a, b);
+		if (cheapest->type == R_RV)
+			execute_r_rv(a, b);
+		if (cheapest->type == RV_R)
+			execute_rv_r(a, b);
+		if (cheapest->type == RV_RV)
+			execute_rv_rv(a, b);
+		pa(a, b);
+		b_len--;
+	}
 }

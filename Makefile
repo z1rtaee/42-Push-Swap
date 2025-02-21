@@ -14,7 +14,9 @@ INCLUDE = ./Libft/libft.a
 
 SRCS = $(SRC_DIR)parsing.c $(SRC_DIR)main.c $(SRC_DIR)stack_utils.c \
 $(SRC_DIR)memory_handle.c $(SRC_DIR)operations.c $(SRC_DIR)sort_utils.c \
-$(SRC_DIR)swap_push_moves.c $(SRC_DIR)rotate_revotate_moves.c
+$(SRC_DIR)swap_push_moves.c $(SRC_DIR)rotate_revotate_moves.c \
+$(SRC_DIR)a_cheapest_node.c $(SRC_DIR)b_cheapest_node.c \
+$(SRC_DIR)a_algorithm.c $(SRC_DIR)b_algorithm.c 
 
 OBJS = $(SRCS:.c=.o)
 

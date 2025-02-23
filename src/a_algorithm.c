@@ -22,33 +22,33 @@ void	a_sort(t_stack **a, t_stack **b)
 	{
 		cheapest = a_cheapest_node(*a, *b);
 		if (cheapest->type == R_R)
-			execute_r_r(a, b);
+			execute_r_r(a, b, cheapest);
 		else if (cheapest->type == R_RV)
-			execute_r_rv(a, b);
+			execute_r_rv(a, b, cheapest, 0);
 		else if (cheapest->type == RV_R)
-			execute_rv_r(a, b);
+			execute_rv_r(a, b, cheapest, 0);
 		else if (cheapest->type == RV_RV)
-			execute_rv_rv(a, b);
+			execute_rv_rv(a, b, cheapest);
 		pb(b, a);
 		a_len--;
 	}
 }
 
-void	execute_r_r(t_stack **a, t_stack **b)
+void	execute_r_r(t_stack **a, t_stack **b, t_stack *cheapest)
 {
 	int	double_moves;
 	int	single_moves;
 
-	double_moves = (*a)->index;
-	if ((*a)->target < double_moves)
-		double_moves = (*a)->target;
-	single_moves = (*a)->cost - double_moves;
+	double_moves = cheapest->index;
+	if (cheapest->target < double_moves)
+		double_moves = cheapest->target;
+	single_moves = (cheapest)->cost - double_moves;
 	while (double_moves)
 	{
 		rr(a, b);
 		double_moves--;
 	}
-	while ((*a)->index && single_moves)
+	while (cheapest->index && single_moves)
 	{
 		ra(a);
 		single_moves--;
@@ -60,12 +60,12 @@ void	execute_r_r(t_stack **a, t_stack **b)
 	}
 }
 
-void	execute_r_rv(t_stack **a, t_stack **b)
+void	execute_r_rv(t_stack **a, t_stack **b, t_stack *cheapest, int flag)
 {
 	int moves;
 	
-	moves =  stack_len(*b) - (*a)->target;
-	while ((*a)->index)
+	moves =  stack_len(*b) - cheapest->target;
+	while (cheapest->index)
 		ra(a);
 	while (moves)
 	{
@@ -74,11 +74,11 @@ void	execute_r_rv(t_stack **a, t_stack **b)
 	}
 }
 
-void	execute_rv_r(t_stack **a, t_stack **b)
+void	execute_rv_r(t_stack **a, t_stack **b, t_stack *cheapest, int flag)
 {
 	int moves;
 
-	moves = (*b)->index;
+	moves = cheapest->index;
 	while ((*a)->index)
 		rra(a);
 	while (moves)
@@ -88,21 +88,21 @@ void	execute_rv_r(t_stack **a, t_stack **b)
 	}
 }
 
-void	execute_rv_rv(t_stack **a, t_stack **b)
+void	execute_rv_rv(t_stack **a, t_stack **b, t_stack *cheapest)
 {
 	int	double_moves;
 	int	single_moves;
 
-	double_moves = (*a)->index;
-	if ((*a)->target < double_moves)
-		double_moves = (*a)->target;
-	single_moves = (*a)->cost - double_moves;
+	double_moves = cheapest->index;
+	if (cheapest->target < double_moves)
+		double_moves = cheapest->target;
+	single_moves = cheapest->cost - double_moves;
 	while (double_moves)
 	{
 		rrr(a, b);
 		double_moves--;
 	}
-	while ((*a)->index && single_moves)
+	while (cheapest->index && single_moves)
 	{
 		rra(a);
 		single_moves--;

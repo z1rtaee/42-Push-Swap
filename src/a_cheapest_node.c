@@ -60,9 +60,7 @@ void	a_set_target(t_stack *a, t_stack *b)
 int	a_cost_rr_rrv(t_stack *a, int b_len)
 {
 	int	cost;
-	int	a_len;
 
-	a_len = stack_len(a);
 	if (a->index > a->target)
 		cost = a->index;
 	else

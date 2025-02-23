@@ -27,6 +27,18 @@ void	push(t_stack **to, t_stack **from)
 		(*to)->prev = tmp;
 	tmp->prev = NULL;
 	*to = tmp;
+	tmp = tmp->next;
+	while (tmp)
+	{
+		tmp->index++;
+		tmp = tmp->next;
+	}
+	tmp = *from;
+	while (tmp)
+	{
+		tmp->index--;
+		tmp = tmp->next;
+	}
 }
 
 void	swap(t_stack **x)
@@ -47,6 +59,14 @@ void	rotate(t_stack **x)
 
 	if (!x || !*x || !(*x)->next)
 		return ;
+	first = *x;
+	first->index = stack_len(*x) - 1;
+	first = first->next;
+	while (first)
+	{
+		first->index--;
+		first = first->next;
+	}
 	first = *x;
 	last = (t_stack *)ft_lstlast((t_list *)(*x));
 	*x = first->next;
@@ -70,6 +90,13 @@ void	rv_rotate(t_stack **x)
 	last->prev = NULL;
 	(*x)->prev = last;
 	*x = last;
+	last->index = 0;
+	last = last->next;
+	while (last)
+	{
+		last->index++;
+		last = last->next;
+	}
 }
 
 void	rrr(t_stack **a, t_stack **b)

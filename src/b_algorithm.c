@@ -18,7 +18,7 @@ void	b_sort(t_stack **a, t_stack **b)
 	t_stack *cheapest;
 
 	b_len = stack_len(*b);
-	while (b_len > 3)
+	while (b_len > 0)
 	{
 		cheapest = b_cheapest_node(*a, *b);
 		if (cheapest->type == R_R)

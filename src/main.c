@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 		return (free_stack(&a), ft_putendl_fd("Error", 2), 1);
 	if (is_sorted(a))
 		return (free_stack(&a), 1);
-	else 
+	if (!is_sorted(a) || !is_sorted(b))
 		sort_all(&a, &b);
 	temp = a;
 	while (temp)

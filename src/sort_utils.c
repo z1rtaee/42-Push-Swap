@@ -79,12 +79,31 @@ void	sort_three(t_stack **a)
 
 void	sort_all(t_stack **a, t_stack **b)
 {
+	t_stack *temp;
+
 	if (stack_len(*a) == 2 && !is_sorted(*a))
 		sa(a);
 	if (stack_len(*a) == 3)
 		sort_three(a);
 	if (stack_len(*a) > 3)
-		a_sort(a, b);
-	if (stack_len(*b) > 3)
+	{
+		pb(b, a);
+		pb(b, a);
+		temp = *a;
+		while (temp)
+		{
+			printf("Stack A value -> %ld\n", temp->content);
+			temp = temp->next;
+		}
+		//a_sort(a, b);
+		sort_three(a);
+		temp = *a;
+		while (temp)
+		{
+			printf("Stack A value -> %ld\n", temp->content);
+			temp = temp->next;
+		}
+	}
+	if (*b)
 		b_sort(a, b);
 }

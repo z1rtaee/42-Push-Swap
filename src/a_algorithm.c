@@ -63,10 +63,22 @@ void	execute_r_r(t_stack **a, t_stack **b, t_stack *cheapest)
 void	execute_r_rv(t_stack **a, t_stack **b, t_stack *cheapest, int flag)
 {
 	int moves;
-	
-	moves =  stack_len(*b) - cheapest->target;
-	while (cheapest->index)
-		ra(a);
+
+	if (!flag)
+	{
+		moves =  stack_len(*b) - cheapest->target;
+		while (cheapest->index)
+			ra(a);
+	}
+	else
+	{
+		moves = stack_len(*a) - cheapest->target;
+		while (cheapest->target)
+		{
+			ra(a);
+			cheapest->target--;
+		}
+	}
 	while (moves)
 	{
 		rrb(b);
@@ -78,9 +90,21 @@ void	execute_rv_r(t_stack **a, t_stack **b, t_stack *cheapest, int flag)
 {
 	int moves;
 
-	moves = cheapest->index;
-	while ((*a)->index)
-		rra(a);
+	if (!flag)
+	{
+		moves = cheapest->target;
+		while (cheapest->index)
+			rra(a);
+	}
+	else
+	{
+		moves= cheapest->index;
+		while (cheapest->target < stack_len(*a))
+		{
+			rra(a);
+			cheapest->target++;
+		}
+	}
 	while (moves)
 	{
 		rb(b);

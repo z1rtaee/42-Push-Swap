@@ -22,13 +22,13 @@ void	b_sort(t_stack **a, t_stack **b)
 	{
 		cheapest = b_cheapest_node(*a, *b);
 		if (cheapest->type == R_R)
-			execute_r_r(a, b);
+			execute_r_r(a, b, cheapest);
 		if (cheapest->type == R_RV)
-			execute_r_rv(a, b);
+			execute_r_rv(a, b, cheapest, 1);
 		if (cheapest->type == RV_R)
-			execute_rv_r(a, b);
+			execute_rv_r(a, b, cheapest, 1);
 		if (cheapest->type == RV_RV)
-			execute_rv_rv(a, b);
+			execute_rv_rv(a, b, cheapest);
 		pa(a, b);
 		b_len--;
 	}

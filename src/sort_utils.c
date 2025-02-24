@@ -95,12 +95,26 @@ void	sort_all(t_stack **a, t_stack **b)
 			printf("Stack A value -> %ld\n", temp->content);
 			temp = temp->next;
 		}
-		//a_sort(a, b);
+		printf("\n");
+		temp = *b;
+		while (temp)
+		{
+			printf("Stack B value -> %ld\n", temp->content);
+			temp = temp->next;
+		}
+		printf("A Algorithm Operations: \n");	
+		a_sort(a, b);
 		sort_three(a);
 		temp = *a;
 		while (temp)
 		{
-			printf("Stack A value -> %ld\n", temp->content);
+			printf("Stack A value After Sort three -> %ld\n", temp->content);
+			temp = temp->next;
+		}
+		temp = *b;
+		while (temp)
+		{
+			printf("Stack B value -> %ld\n", temp->content);
 			temp = temp->next;
 		}
 	}

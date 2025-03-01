@@ -21,6 +21,7 @@ void	a_sort(t_stack **a, t_stack **b)
 	while (a_len > 3)
 	{
 		cheapest = a_cheapest_node(*a, *b);
+		//printf("Target -> %d\n", cheapest->target);
 		if (cheapest->type == R_R)
 			execute_r_r(a, b, cheapest);
 		else if (cheapest->type == R_RV)
@@ -28,7 +29,7 @@ void	a_sort(t_stack **a, t_stack **b)
 		else if (cheapest->type == RV_R)
 			execute_rv_r(a, b, cheapest, 0);
 		else if (cheapest->type == RV_RV)
-			execute_rv_rv(a, b, cheapest);
+			execute_rv_rv(a, b, cheapest, 0);
 		pb(b, a);
 		a_len--;
 	}
@@ -42,7 +43,7 @@ void	execute_r_r(t_stack **a, t_stack **b, t_stack *cheapest)
 	double_moves = cheapest->index;
 	if (cheapest->target < double_moves)
 		double_moves = cheapest->target;
-	single_moves = (cheapest)->cost - double_moves;
+	single_moves = cheapest->cost - double_moves;
 	while (double_moves)
 	{
 		rr(a, b);
@@ -112,15 +113,25 @@ void	execute_rv_r(t_stack **a, t_stack **b, t_stack *cheapest, int flag)
 	}
 }
 
-void	execute_rv_rv(t_stack **a, t_stack **b, t_stack *cheapest)
+void	execute_rv_rv(t_stack **a, t_stack **b, t_stack *cheapest, int flag)
 {
 	int	double_moves;
 	int	single_moves;
 
-	double_moves = cheapest->index;
-	if (cheapest->target < double_moves)
-		double_moves = cheapest->target;
+	if (!flag)
+	{
+		double_moves = stack_len(*a) - cheapest->index;
+		if (stack_len(*b) - cheapest->target < double_moves)
+			double_moves = stack_len(*b) - cheapest->target;
+	}
+	else
+	{
+		double_moves = stack_len(*b) - cheapest->index;
+		if (stack_len(*a) - cheapest->target < double_moves)
+			double_moves = stack_len(*a) - cheapest->target;
+	}
 	single_moves = cheapest->cost - double_moves;
+	//printf("Moves -> %d\n", double_moves);
 	while (double_moves)
 	{
 		rrr(a, b);

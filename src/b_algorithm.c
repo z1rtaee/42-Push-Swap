@@ -28,7 +28,7 @@ void	b_sort(t_stack **a, t_stack **b)
 		if (cheapest->type == RV_R)
 			execute_rv_r(a, b, cheapest, 1);
 		if (cheapest->type == RV_RV)
-			execute_rv_rv(a, b, cheapest);
+			execute_rv_rv(a, b, cheapest, 1);
 		pa(a, b);
 		b_len--;
 	}

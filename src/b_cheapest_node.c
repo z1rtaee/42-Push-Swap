@@ -16,15 +16,19 @@ t_stack	*b_cheapest_node(t_stack *a, t_stack *b)
 {
 	t_stack	*cheapest;
 	int		a_len;
+	int		b_len;
 
 	a_len = stack_len(a);
+	b_len = stack_len(b);
+	b_set_target(a, b);
+	b_cost_rvr_rvrv(b, a_len, b_len, b_cost_rr_rrv(b, a_len));
 	cheapest = b;
+	b = b->next;
 	while (b)
 	{
 		b_set_target(a, b);
-		if (b_cost_rvr_rvrv(b, a_len, b_cost_rr_rrv(b,
-					a_len)) < b_cost_rvr_rvrv(cheapest, a_len,
-				b_cost_rr_rrv(cheapest, a_len)))
+		b_cost_rvr_rvrv(b, a_len, b_len, b_cost_rr_rrv(b, a_len));
+		if ( a->cost < cheapest->cost)
 			cheapest = b;
 		b = b->next;
 	}
@@ -38,11 +42,11 @@ void	b_set_target(t_stack *a, t_stack *b)
 
 	if (!a)
 		return ;
-	printf ("A max Content : %ld\n", get_max(a)->content);
+	//printf ("A max Content : %ld\n", get_max(a)->content);
 	if (b->content > get_max(a)->content || b->content < get_min(a)->content)
 	{
 		b->target = get_min(a)->index;
-		printf("b->target - Index :%d\n", b->target);
+		//printf("b->target - Index :%d\n", b->target);
 		return ;
 	}
 	target_nbr = INT_MAX;
@@ -75,11 +79,8 @@ int	b_cost_rr_rrv(t_stack *b, int a_len)
 	return (cost);
 }
 
-int	b_cost_rvr_rvrv(t_stack *b, int a_len, int cost)
+int	b_cost_rvr_rvrv(t_stack *b, int a_len, int  b_len, int cost)
 {
-	int	b_len;
-
-	b_len = stack_len(b);
 	if ((b_len - b->index) + b->target < cost)
 	{
 		cost = (b_len - b->index) + b->target;

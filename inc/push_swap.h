@@ -86,20 +86,20 @@ void	sort_all(t_stack **a, t_stack **b);
 void	execute_r_r(t_stack **a, t_stack **b, t_stack *cheapest);
 void	execute_r_rv(t_stack **a, t_stack **b, t_stack *cheapest, int flag);
 void	execute_rv_r(t_stack **a, t_stack **b, t_stack *cheapest, int flag);
-void	execute_rv_rv(t_stack **a, t_stack **b, t_stack *cheapest);
+void	execute_rv_rv(t_stack **a, t_stack **b, t_stack *cheapest, int flag);
 
 //Turk Algorithm Stack A
 t_stack	*a_cheapest_node(t_stack *a, t_stack *b);
 void	a_set_target(t_stack *a, t_stack *b);
 int		a_cost_rr_rrv(t_stack *a, int b_len);
-int		a_cost_rvr_rvrv(t_stack *a, int b_len, int cost);
+int		a_cost_rvr_rvrv(t_stack *a, int a_len, int b_len, int cost);
 void	a_sort(t_stack **a, t_stack **b);
 
 //Turk Algorithm Stack B
 t_stack	*b_cheapest_node(t_stack *a, t_stack *b);
 void	b_set_target(t_stack *a, t_stack *b);
 int		b_cost_rr_rrv(t_stack *b, int a_len);
-int		b_cost_rvr_rvrv(t_stack *b, int a_len, int cost);
+int		b_cost_rvr_rvrv(t_stack *b, int a_len, int b_len, int cost);
 void	b_sort(t_stack **a, t_stack **b);
 
 #endif

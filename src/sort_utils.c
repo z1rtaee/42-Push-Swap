@@ -89,41 +89,15 @@ void	sort_all(t_stack **a, t_stack **b)
 	{
 		pb(b, a);
 		pb(b, a);
-//		temp = *a;
-//		while (temp)
-//		{
-//			printf("Stack A value -> %ld\n", temp->content);
-//			temp = temp->next;
-//		}
-//		printf("\n");
-//		temp = *b;
-//		while (temp)
-//		{
-//			printf("Stack B value -> %ld\n", temp->content);
-//			temp = temp->next;
-//		}
-//		printf("A Algorithm Operations: \n");	
 		a_sort(a, b);
 		sort_three(a);
-//		temp = *a;
-//		while (temp)
-//		{
-//			printf("Stack A value After Sort three -> %ld\n", temp->content);
-//			temp = temp->next;
-//		}
-//		temp = *b;
-//		while (temp)
-//		{
-//			printf("Stack B value -> %ld\n", temp->content);
-//			temp = temp->next;
-//		}
 	}
 	if (*b)
 		b_sort(a, b);
-//	t_stack	*min;
-//	min = get_min(*a);
-//	while (min->index)
-//	{
-//		ra(a);
-//	}
+	if (get_min(*a)->index < stack_len(*a))
+		while (get_min(*a)->index)
+			ra(a);
+	else
+		while(get_min(*a)->index)
+			rra(a);
 }

@@ -83,7 +83,7 @@ void	sort_three(t_stack **a);
 void	sort_all(t_stack **a, t_stack **b);
 
 //Turk Algorithm
-void	execute_r_r(t_stack **a, t_stack **b, t_stack *cheapest);
+void	execute_r_r(t_stack **a, t_stack **b, t_stack *cheapest, int flag);
 void	execute_r_rv(t_stack **a, t_stack **b, t_stack *cheapest, int flag);
 void	execute_rv_r(t_stack **a, t_stack **b, t_stack *cheapest, int flag);
 void	execute_rv_rv(t_stack **a, t_stack **b, t_stack *cheapest, int flag);

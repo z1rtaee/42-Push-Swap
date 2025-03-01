@@ -22,7 +22,7 @@ void	b_sort(t_stack **a, t_stack **b)
 	{
 		cheapest = b_cheapest_node(*a, *b);
 		if (cheapest->type == R_R)
-			execute_r_r(a, b, cheapest);
+			execute_r_r(a, b, cheapest, 1);
 		if (cheapest->type == R_RV)
 			execute_r_rv(a, b, cheapest, 1);
 		if (cheapest->type == RV_R)

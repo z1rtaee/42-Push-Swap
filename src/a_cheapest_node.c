@@ -21,22 +21,17 @@ t_stack	*a_cheapest_node(t_stack *a, t_stack *b)
 	a_len = stack_len(a);
 	b_len = stack_len(b);
 	a_set_target(a, b);
-	//printf("A Target Index -> %d\n", a->target);
 	a_cost_rvr_rvrv(a, a_len, b_len, a_cost_rr_rrv(a, b_len));
-	//printf("A cost -> %d\n", a->cost);
 	cheapest = a;
 	a = a->next;
 	while (a)
 	{
 		a_set_target(a, b);
-		//printf("A Target Index -> %d\n", a->target);
 		a_cost_rvr_rvrv(a, a_len, b_len, a_cost_rr_rrv(a, b_len));
-		//printf("A cost -> %d\n", a->cost);
 		if (a->cost < cheapest->cost)
 			cheapest = a;
 		a = a->next;
 	}
-	//printf("Cheapeast target index -> %d\n", cheapest->target);
 	return (cheapest);
 }
 
@@ -47,7 +42,6 @@ void	a_set_target(t_stack *a, t_stack *b)
 
 	if (!b)
 		return ;
-	//printf("HERE %d %d %ld %ld %ld\n", a->content > get_max(b)->content, a->content < get_min(b)->content, a->content, get_max(b)->content, get_min(b)->content);
 	if (a->content > get_max(b)->content || a->content < get_min(b)->content)
 	{
 		a->target = get_max(b)->index;

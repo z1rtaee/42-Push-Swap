@@ -76,7 +76,7 @@ void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
 
 //Functions for sort utility 
-t_stack *get_max(t_stack *x);
+t_stack	*get_max(t_stack *x);
 t_stack	*get_min(t_stack *x);
 int		is_sorted(t_stack *a);
 void	sort_three(t_stack **a);

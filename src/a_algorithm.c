@@ -16,7 +16,7 @@ void	a_sort(t_stack **a, t_stack **b)
 {
 	int		a_len;
 	t_stack	*cheapest;
-	
+
 	a_len = stack_len(*a);
 	while (a_len > 3)
 	{
@@ -43,42 +43,26 @@ void	execute_r_r(t_stack **a, t_stack **b, t_stack *cheapest, int flag)
 	if (cheapest->target < double_moves)
 		double_moves = cheapest->target;
 	single_moves = cheapest->cost - double_moves;
-	while (double_moves)
-	{
+	while (double_moves--)
 		rr(a, b);
-		double_moves--;
-	}
-	if (!flag)
+	while (!flag && cheapest->index && single_moves--)
+		ra(a);
+	while (flag && cheapest->target && single_moves--)
 	{
-		while (cheapest->index && single_moves)
-		{
-			ra(a);
-			single_moves--;
-		}
+		ra(a);
+		cheapest->target--;
 	}
-	else
-	{
-		while (cheapest->target && single_moves)
-		{
-			ra(a);
-			cheapest->target--;
-			single_moves--;
-		}
-	}
-	while (single_moves)
-	{
+	while (single_moves--)
 		rb(b);
-		single_moves--;
-	}
 }
 
 void	execute_r_rv(t_stack **a, t_stack **b, t_stack *cheapest, int flag)
 {
-	int moves;
+	int	moves;
 
 	if (!flag)
 	{
-		moves =  stack_len(*b) - cheapest->target;
+		moves = stack_len(*b) - cheapest->target;
 		while (cheapest->index)
 			ra(a);
 	}
@@ -100,7 +84,7 @@ void	execute_r_rv(t_stack **a, t_stack **b, t_stack *cheapest, int flag)
 
 void	execute_rv_r(t_stack **a, t_stack **b, t_stack *cheapest, int flag)
 {
-	int moves;
+	int	moves;
 
 	if (!flag)
 	{
@@ -110,7 +94,7 @@ void	execute_rv_r(t_stack **a, t_stack **b, t_stack *cheapest, int flag)
 	}
 	else
 	{
-		moves= cheapest->index;
+		moves = cheapest->index;
 		while (cheapest->target < stack_len(*a))
 		{
 			rra(a);
@@ -142,31 +126,12 @@ void	execute_rv_rv(t_stack **a, t_stack **b, t_stack *cheapest, int flag)
 			double_moves = stack_len(*a) - cheapest->target;
 	}
 	single_moves = cheapest->cost - double_moves;
-	while (double_moves)
-	{
+	while (double_moves--)
 		rrr(a, b);
-		double_moves--;
-	}
-	if (!flag)
-	{
-		while (cheapest->index && single_moves)
-		{
-			rra(a);
-			single_moves--;
-		}
-	}
-	else
-	{
-		while (cheapest->target < stack_len(*a) && single_moves)
-		{
-			rra(a);
-			cheapest->target++;
-			single_moves--;
-		}
-	}
-	while (single_moves)
-	{
+	while (!flag && cheapest->index && single_moves--)
+		rra(a);
+	while (flag && cheapest->target++ < stack_len(*a) && single_moves--)
+		rra(a);
+	while (single_moves--)
 		rrb(b);
-		single_moves--;
-	}
 }

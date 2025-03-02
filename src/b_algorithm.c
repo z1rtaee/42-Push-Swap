@@ -14,8 +14,8 @@
 
 void	b_sort(t_stack **a, t_stack **b)
 {
-	int	b_len;
-	t_stack *cheapest;
+	int		b_len;
+	t_stack	*cheapest;
 
 	b_len = stack_len(*b);
 	while (b_len > 0)

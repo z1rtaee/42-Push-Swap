@@ -79,8 +79,6 @@ void	sort_three(t_stack **a)
 
 void	sort_all(t_stack **a, t_stack **b)
 {
-	//t_stack *temp;
-
 	if (stack_len(*a) == 2 && !is_sorted(*a))
 		sa(a);
 	if (stack_len(*a) == 3)
@@ -98,6 +96,6 @@ void	sort_all(t_stack **a, t_stack **b)
 		while (get_min(*a)->index)
 			ra(a);
 	else
-		while(get_min(*a)->index)
+		while (get_min(*a)->index)
 			rra(a);
 }

@@ -14,17 +14,17 @@
 
 void	print_stack(t_stack *x)
 {
-	t_stack	tmp;
+	t_stack	*tmp;
 
 	tmp = x;
 	while (tmp)
 	{
 		printf("Node Content : %d\n", tmp->content);
-		if (x->prev)
+		if (tmp->prev)
 			printf("Node Prev : %d\n", tmp->prev->content);
 		else
 			printf("No Prev found.\n");
-		if (x->next)
+		if (tmp->next)
 			printf("Node Next : %d\n\n", tmp->next->content);
 		else
 			printf("No Next found\n\n");

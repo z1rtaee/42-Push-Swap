@@ -28,7 +28,7 @@ t_stack	*b_cheapest_node(t_stack *a, t_stack *b)
 	{
 		b_set_target(a, b);
 		b_cost_rvr_rvrv(b, a_len, b_len, b_cost_rr_rrv(b, b_len));
-		if ( b->cost < cheapest->cost)
+		if (b->cost < cheapest->cost)
 			cheapest = b;
 		b = b->next;
 	}
@@ -77,7 +77,7 @@ int	b_cost_rr_rrv(t_stack *b, int b_len)
 	return (cost);
 }
 
-int	b_cost_rvr_rvrv(t_stack *b, int a_len, int  b_len, int cost)
+int	b_cost_rvr_rvrv(t_stack *b, int a_len, int b_len, int cost)
 {
 	if ((a_len - b->target) + b->index < cost)
 	{

@@ -6,7 +6,7 @@
 /*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 11:22:14 by bpires-r          #+#    #+#             */
-/*   Updated: 2025/02/10 16:54:11 by bpires-r         ###   ########.fr       */
+/*   Updated: 2025/03/09 18:36:22 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ long	ft_atoi(const char *nptr)
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		result = result * 10 + nptr[i] - '0';
-		if (result > INT_MAX || result < INT_MIN)
+		result = result * 10 + (nptr[i] - '0');
+		if (result > (long)INT_MAX + 1)
 			return ((long)INT_MAX + 1);
 		i++;
 	}

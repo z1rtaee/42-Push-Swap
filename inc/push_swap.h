@@ -6,14 +6,16 @@
 /*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:21:40 by zirtaee           #+#    #+#             */
-/*   Updated: 2025/02/21 17:24:37 by bpires-r         ###   ########.fr       */
+/*   Updated: 2025/03/09 17:20:37 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../Libft/libft.h"
+# include "../complete_lib/42_Libft/libft.h"
+# include "../complete_lib/42_GNL/get_next_line_bonus.h"
+# include "../complete_lib/42_Printf/ft_printf.h"
 # include <stdlib.h>
 
 # define TRUE 1

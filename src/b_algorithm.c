@@ -6,7 +6,7 @@
 /*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 15:15:54 by bpires-r          #+#    #+#             */
-/*   Updated: 2025/02/21 16:49:38 by bpires-r         ###   ########.fr       */
+/*   Updated: 2025/03/10 05:30:58 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	b_sort(t_stack **a, t_stack **b)
 			execute_rv_r(a, b, cheapest, 1);
 		if (cheapest->type == RV_RV)
 			execute_rv_rv(a, b, cheapest, 1);
-		pa(a, b);
+		pa(a, b, 1);
 		b_len--;
 	}
 }

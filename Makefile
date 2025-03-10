@@ -86,7 +86,7 @@ clean:
 				@make -s -C $(GNL_PATH) clean
 				@rm -rf $(OBJS) $(SRC_DIR)main.o
 				@rm -f .bonus
-				@echo "$(WHITE)✩°｡⋆ $(PINK)Cleaned$(WHITE) ⋆｡°✩ \n \
+				@echo "$(WHITE)✩°｡⋆ $(PINK)Files Cleaned$(WHITE) ⋆｡°✩ \n \
 	(\ (\    \n \
 ( ~_•)    \n \
 (っ▄︻▇〓▄︻┻┳═ ─ ҉.  \n \
@@ -99,7 +99,7 @@ fclean: 		clean
 				@make -s -C $(GNL_PATH) fclean
 				@rm -f $(NAME)
 				@rm -f $(BONUS_NAME)
-				@echo "$(WHITE)⋆˚࿔ Executable ˚⋆♡$(DEFAULT)"
+				@echo "$(WHITE)⋆˚࿔ Executable Killed˚⋆♡$(DEFAULT)"
 
 re: 			fclean all
 

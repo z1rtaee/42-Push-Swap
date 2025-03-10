@@ -6,7 +6,7 @@
 /*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:21:40 by zirtaee           #+#    #+#             */
-/*   Updated: 2025/03/09 23:58:18 by bpires-r         ###   ########.fr       */
+/*   Updated: 2025/03/10 05:28:53 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,17 +66,17 @@ void	push(t_stack **to, t_stack **from);
 void	swap(t_stack **x);
 void	rotate(t_stack **x);
 void	rv_rotate(t_stack **x);
-void	pa(t_stack **a, t_stack **b);
-void	pb(t_stack **b, t_stack **a);
-void	sa(t_stack **a);
-void	sb(t_stack **b);
-void	ss(t_stack **a, t_stack **b);
-void	ra(t_stack **a);
-void	rb(t_stack **a);
-void	rr(t_stack **a, t_stack **b);
-void	rra(t_stack **a);
-void	rrb(t_stack **b);
-void	rrr(t_stack **a, t_stack **b);
+void	pa(t_stack **a, t_stack **b, int flag);
+void	pb(t_stack **b, t_stack **a, int flag);
+void	sa(t_stack **a, int flag);
+void	sb(t_stack **b, int flag);
+void	ss(t_stack **a, t_stack **b, int flag);
+void	ra(t_stack **a, int flag);
+void	rb(t_stack **a, int flag);
+void	rr(t_stack **a, t_stack **b, int flag);
+void	rra(t_stack **a, int flag);
+void	rrb(t_stack **b, int flag);
+void	rrr(t_stack **a, t_stack **b, int flag);
 
 //Functions for sort utility 
 t_stack	*get_max(t_stack *x);

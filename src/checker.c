@@ -6,7 +6,7 @@
 /*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 19:08:54 by bpires-r          #+#    #+#             */
-/*   Updated: 2025/03/10 00:04:24 by bpires-r         ###   ########.fr       */
+/*   Updated: 2025/03/10 05:33:14 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,27 +23,27 @@ void	put_error(t_stack **a, char *line)
 void	execute_opperations(t_stack **a, t_stack **b, char *line)
 {
 	if (!ft_strcmp(line, "ra\n"))
-		ra(a);
+		ra(a, 0);
 	else if (!ft_strcmp(line, "rb\n"))
-		rb(b);
+		rb(b, 0);
 	else if (!ft_strcmp(line, "rr\n"))
-		rr(a, b);
+		rr(a, b, 0);
 	else if (!ft_strcmp(line, "rra\n"))
-		rra(a);
+		rra(a, 0);
 	else if (!ft_strcmp(line, "rrb\n"))
-		rrb(b);
+		rrb(b, 0);
 	else if (!ft_strcmp(line, "rrr\n"))
-		rrr(a, b);
+		rrr(a, b, 0);
 	else if (!ft_strcmp(line, "sa\n"))
-		sa(a);
+		sa(a, 0);
 	else if (!ft_strcmp(line, "sb\n"))
-		sb(b);
+		sb(b, 0);
 	else if (!ft_strcmp(line, "ss\n"))
-		ss(a, b);
+		ss(a, b, 0);
 	else if (!ft_strcmp(line, "pa\n"))
-		pa(a, b);
+		pa(a, b, 0);
 	else if (!ft_strcmp(line, "pb\n"))
-		pb(b, a);
+		pb(b, a, 0);
 	else
 		put_error(a, line);
 	free(line);

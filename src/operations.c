@@ -6,7 +6,7 @@
 /*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 19:45:06 by zirtaee           #+#    #+#             */
-/*   Updated: 2025/02/10 17:32:32 by bpires-r         ###   ########.fr       */
+/*   Updated: 2025/03/10 05:28:19 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,10 @@ void	rv_rotate(t_stack **x)
 	}
 }
 
-void	rrr(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b, int flag)
 {
 	rv_rotate(a);
 	rv_rotate(b);
-	ft_putstr_fd("rrr\n", 1);
+	if (flag)
+		ft_putstr_fd("rrr\n", 1);
 }

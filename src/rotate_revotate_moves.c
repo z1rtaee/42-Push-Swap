@@ -6,39 +6,44 @@
 /*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:00:52 by zirtaee           #+#    #+#             */
-/*   Updated: 2025/02/10 22:32:29 by bpires-r         ###   ########.fr       */
+/*   Updated: 2025/03/10 05:27:08 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	ra(t_stack **a)
+void	ra(t_stack **a, int flag)
 {
 	rotate(a);
-	ft_putstr_fd("ra\n", 1);
+	if (flag)
+		ft_putstr_fd("ra\n", 1);
 }
 
-void	rb(t_stack **b)
+void	rb(t_stack **b, int flag)
 {
 	rotate(b);
-	ft_putstr_fd("rb\n", 1);
+	if (flag)
+		ft_putstr_fd("rb\n", 1);
 }
 
-void	rr(t_stack **a, t_stack **b)
+void	rr(t_stack **a, t_stack **b, int flag)
 {
 	rotate(a);
 	rotate(b);
-	ft_putstr_fd("rr\n", 1);
+	if (flag)
+		ft_putstr_fd("rr\n", 1);
 }
 
-void	rra(t_stack **a)
+void	rra(t_stack **a, int flag)
 {
 	rv_rotate(a);
-	ft_putstr_fd("rra\n", 1);
+	if (flag)
+		ft_putstr_fd("rra\n", 1);
 }
 
-void	rrb(t_stack **b)
+void	rrb(t_stack **b, int flag)
 {
 	rv_rotate(b);
-	ft_putstr_fd("rrb\n", 1);
+	if (flag)
+		ft_putstr_fd("rrb\n", 1);
 }

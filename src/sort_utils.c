@@ -6,7 +6,7 @@
 /*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 16:58:56 by bpires-r          #+#    #+#             */
-/*   Updated: 2025/02/21 17:25:49 by bpires-r         ###   ########.fr       */
+/*   Updated: 2025/03/10 05:32:23 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,31 +62,31 @@ void	sort_three(t_stack **a)
 
 	max_val = get_max(*a);
 	if (max_val->index == 2 && !is_sorted(*a))
-		sa(a);
+		sa(a, 1);
 	else if (!max_val->index)
 	{
-		ra(a);
+		ra(a, 1);
 		if (!is_sorted(*a))
-			sa(a);
+			sa(a, 1);
 	}
 	else if (max_val->index == 1)
 	{
-		rra(a);
+		rra(a, 1);
 		if (!is_sorted(*a))
-			sa(a);
+			sa(a, 1);
 	}
 }
 
 void	sort_all(t_stack **a, t_stack **b)
 {
 	if (stack_len(*a) == 2 && !is_sorted(*a))
-		sa(a);
+		sa(a, 1);
 	if (stack_len(*a) == 3)
 		sort_three(a);
 	if (stack_len(*a) > 3)
 	{
-		pb(b, a);
-		pb(b, a);
+		pb(b, a, 1);
+		pb(b, a, 1);
 		a_sort(a, b);
 		sort_three(a);
 	}
@@ -94,8 +94,8 @@ void	sort_all(t_stack **a, t_stack **b)
 		b_sort(a, b);
 	if (get_min(*a)->index < stack_len(*a))
 		while (get_min(*a)->index)
-			ra(a);
+			ra(a, 1);
 	else
 		while (get_min(*a)->index)
-			rra(a);
+			rra(a, 1);
 }

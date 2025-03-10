@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memory_handle.c                                    :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/16 22:52:30 by zirtaee           #+#    #+#             */
-/*   Updated: 2025/03/10 00:01:33 by bpires-r         ###   ########.fr       */
+/*   Created: 2025/03/09 23:31:50 by bpires-r          #+#    #+#             */
+/*   Updated: 2025/03/09 23:50:36 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "libft.h"
 
-void	free_ar(char **ar)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	int	i;
+	size_t	i;
 
-	i = -1;
-	while (ar[++i])
-		free(ar[i]);
-	free (ar);
-}
-
-void	free_stack(t_stack **stack)
-{
-	t_stack	*tmp;
-
-	if (!stack)
-		return ;
-	while (*stack)
-	{
-		tmp = (*stack)->next;
-		free (*stack);
-		*stack = tmp;
-	}
+	i = 0;
+	while ((s1[i] == s2[i]) && (s1[i] || s2[i]))
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

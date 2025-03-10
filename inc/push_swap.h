@@ -6,7 +6,7 @@
 /*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:21:40 by zirtaee           #+#    #+#             */
-/*   Updated: 2025/03/09 17:20:37 by bpires-r         ###   ########.fr       */
+/*   Updated: 2025/03/09 23:58:18 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int		stack_len(t_stack *x);
 //Memory handle functions
 void	free_stack(t_stack **stack);
 void	free_ar(char **ar);
+void	free_both(t_stack **a, t_stack **b);
 
 //Moves and operations
 void	push(t_stack **to, t_stack **from);

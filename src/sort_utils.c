@@ -6,7 +6,7 @@
 /*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 16:58:56 by bpires-r          #+#    #+#             */
-/*   Updated: 2025/03/10 05:32:23 by bpires-r         ###   ########.fr       */
+/*   Updated: 2025/03/12 18:55:08 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	sort_all(t_stack **a, t_stack **b)
 	}
 	if (*b)
 		b_sort(a, b);
-	if (get_min(*a)->index < stack_len(*a))
+	if (get_min(*a)->index < stack_len(*a) / 2)
 		while (get_min(*a)->index)
 			ra(a, 1);
 	else

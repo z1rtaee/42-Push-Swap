@@ -6,7 +6,7 @@
 /*   By: bpires-r <bpires-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:03:05 by bpires-r          #+#    #+#             */
-/*   Updated: 2025/03/10 05:30:46 by bpires-r         ###   ########.fr       */
+/*   Updated: 2025/03/12 18:48:54 by bpires-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	execute_r_r(t_stack **a, t_stack **b, t_stack *cheapest, int flag)
 		ra(a, 1);
 		cheapest->target--;
 	}
-	while (single_moves--)
+	while (single_moves-- > 0)
 		rb(b, 1);
 }
 
